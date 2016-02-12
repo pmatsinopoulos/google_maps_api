@@ -8,22 +8,17 @@
     <meta name="description" content="A demo of a map using the Google Maps API">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="stylesheets/simple_map.css" type="text/css">
+    <link rel="stylesheet" href="stylesheets/simple_map_with_sign_in.css" type="text/css">
 
     <!-- JQUERY -->
     <script src="https://code.jquery.com/jquery-1.12.0.min.js" type="text/javascript"></script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.22&key=AIzaSyBk7Bn5ofTEY_8fiHhqENEDwQoZtvnYsjU&signed_in=true"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.22&key=AIzaSyBk7Bn5ofTEY_8fiHhqENEDwQoZtvnYsjU&signed_in=true&libraries=places"></script>
 
     <!-- Application -->
-    <script src="javascripts/simple_map.js" type="text/javascript"></script>
+    <script src="javascripts/simple_map_with_sign_in.js" type="text/javascript"></script>
   </head>
   <body>
-    <div id="options">
-      <input type="checkbox" id="disable-default-ui"> Disable Default UI
-      <input type="text" id="latitude"> Latitude
-      <input type="text" id="longitude"> Longitude
-    </div>
     <div id="map"></div>
   </body>
 </html>
