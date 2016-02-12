@@ -14,7 +14,7 @@ $(document).ready(function() {
                 west: 125.244141
             };
 
-            map.fitBounds(bounds);
+            //map.fitBounds(bounds);
 
             var secretMessages = ['This', 'is', 'the', 'secret', 'message'];
             var lngSpan = bounds.east - bounds.west;
@@ -39,6 +39,17 @@ $(document).ready(function() {
                 });
             }
 
+            //
+            // Display an info window to ask user to change the zoom level
+            var infoWindow = new google.maps.InfoWindow({
+                content: 'Change the zoom level',
+                position: center_location
+            });
+            infoWindow.open(map);
+
+            map.addListener('zoom_changed', function() {
+                infoWindow.setContent('Zoom: ' + map.getZoom());
+            });
         } // initMap()
 
         initMap();
