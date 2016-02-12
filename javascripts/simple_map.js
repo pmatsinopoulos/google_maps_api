@@ -14,6 +14,11 @@ $(document).ready(function () {
     $('#disable-default-ui').on('change', function () {
         var checked = $(this).is(':checked');
         map.setOptions({disableDefaultUI: checked});
+        if (!checked) {
+            // for some reason, when we disable the default UI and then enable it back again, the
+            // map type controls are not restored. That's why we call it explicitly.
+            map.setOptions({mapTypeControl: true});
+        }
     });
 });
 
