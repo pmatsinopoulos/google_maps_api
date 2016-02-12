@@ -16,6 +16,29 @@ $(document).ready(function() {
 
             map.fitBounds(bounds);
 
+            var secretMessages = ['This', 'is', 'the', 'secret', 'message'];
+            var lngSpan = bounds.east - bounds.west;
+            var latSpan = bounds.north - bounds.south;
+            for (var i = 0; i < secretMessages.length; i++) {
+                var marker = new google.maps.Marker({
+                    position: {
+                        lat: bounds.south + latSpan * Math.random(),
+                        lng: bounds.west + lngSpan * Math.random()
+                    },
+                    map: map
+                });
+                attachSecretMessage(marker, secretMessages[i]);
+            }
+
+            function attachSecretMessage(marker, secretMessage) {
+                var infoWindow = new google.maps.InfoWindow({
+                    content: secretMessage
+                });
+                marker.addListener('click', function() {
+                    infoWindow.open(marker.get('map'), marker);
+                });
+            }
+
         } // initMap()
 
         initMap();
