@@ -12,6 +12,19 @@ $(document).ready(function() {
                 map: map,
                 title: 'Click to zoom'
             });
+
+            map.addListener('center_changed', function() {
+                window.setTimeout(function() {
+                    map.panTo(marker.getPosition());
+                }, 3000);
+            });
+
+            marker.addListener('click', function() {
+                map.setOptions({
+                    zoom: 8,
+                    center: marker.getPosition()
+                })
+            });
         }
         initMap();
     })();
